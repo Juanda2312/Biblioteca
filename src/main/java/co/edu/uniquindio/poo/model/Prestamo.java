@@ -14,7 +14,7 @@ public class Prestamo {
     private Bibliotecario bibliotecario;
     private LinkedList<DetallesPrestamo> detalles;
 
-    Prestamo(String codigo, Date fechaprestamo, Estudiante estudiante, Bibliotecario bibliotecario,
+    public Prestamo(String codigo, Date fechaprestamo, Estudiante estudiante, Bibliotecario bibliotecario,
             LinkedList<DetallesPrestamo> detalles) {
         this.codigo = codigo;
         this.fechaprestamo = fechaprestamo;
@@ -130,7 +130,7 @@ public class Prestamo {
         long dias = unidad.convert(tiempo, TimeUnit.MILLISECONDS);
         for (DetallesPrestamo detalle : detalles) {
             costototal += detalle.getCostoprestamo();
-            detalle.getLibro().aumentarcantidaddisponible();
+            detalle.getLibro().aumentarcantidaddisponible(detalle.getUnidadesprestadas());
         }
         costototal = costototal * dias;
         fechaentrega = fechaentregaaux;

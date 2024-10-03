@@ -5,11 +5,11 @@ public class DetallesPrestamo {
     private int unidadesprestadas;
     private Libro libro;
 
-    DetallesPrestamo(float costoprestamo, int unidadesprestadas, Libro libro) {
+    public DetallesPrestamo(float costoprestamo, int unidadesprestadas, Libro libro) {
         this.costoprestamo = costoprestamo;
         this.unidadesprestadas = unidadesprestadas;
         this.libro = libro;
-        libro.disminuircantidaddisponible();
+        libro.disminuircantidaddisponible(unidadesprestadas);
     }
 
     public float getCostoprestamo() {

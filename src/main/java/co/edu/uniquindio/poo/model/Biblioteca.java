@@ -12,7 +12,7 @@ public class Biblioteca {
     private HashMap<String, Prestamo> listaprestamos;
     private LinkedList<Libro> listalibros;
 
-    Biblioteca(String nombre) {
+    public Biblioteca(String nombre) {
         this.nombre = nombre;
         listapersonas = new ArrayList<>();
         listaprestamos = new HashMap<>();
@@ -59,10 +59,14 @@ public class Biblioteca {
      */
     public String Agregarestudiante(Estudiante estudiante) {
         String mensaje = "El estudiante ya existe";
-        boolean existe = Buscarestudiante(estudiante);
+        if (estudiante != null) {
+            boolean existe = Buscarestudiante(estudiante);
         if (!existe) {
             listapersonas.add(estudiante);
             mensaje = "El estudiante ha sido agregado correctamente";
+        }
+        }else{
+            mensaje = "El estudiante no puede ser nulo";
         }
         return mensaje;
     }
@@ -130,11 +134,16 @@ public class Biblioteca {
      */
     public String AgregarBibliotecario(Bibliotecario bibliotecario) {
         String mensaje = "El bibliotecario ya existe";
-        boolean existe = BuscarBibliotecario(bibliotecario);
+        if (bibliotecario != null) {
+            boolean existe = BuscarBibliotecario(bibliotecario);
         if (!existe) {
             listapersonas.add(bibliotecario);
             mensaje = "El bibliotecario ha sido agregado correctamente";
         }
+        }else{
+            mensaje = "El bibliotecario no puede ser null";
+        }
+        
         return mensaje;
     }
 
@@ -201,11 +210,16 @@ public class Biblioteca {
      */
     public String AgregarLibro(Libro libro) {
         String mensaje = "El libro ya existe";
-        boolean existe = BuscarLibro(libro);
-        if (!existe) {
-            listalibros.add(libro);
-            mensaje = "El libro ha sido agregado correctamente";
+        if (libro != null) {
+            boolean existe = BuscarLibro(libro);
+            if (!existe) {
+                listalibros.add(libro);
+                mensaje = "El libro ha sido agregado correctamente";
+            }
+        }else{
+            mensaje = "El libro no puede ser null";
         }
+       
         return mensaje;
     }
 
@@ -275,11 +289,16 @@ public class Biblioteca {
      */
     public String AgregarPrestamo(Prestamo prestamo) {
         String mensaje = "El prestamo ya existe";
-        boolean existe = BuscarPrestamo(prestamo.getCodigo());
+        if (prestamo != null) {
+            boolean existe = BuscarPrestamo(prestamo.getCodigo());
         if (!existe) {
             listaprestamos.put(prestamo.getCodigo(), prestamo);
             mensaje = "El prestamo ha sido agregado correctamente";
         }
+        }else{
+            mensaje = "El prestamo no puede ser null";
+        }
+        
         return mensaje;
     }
 

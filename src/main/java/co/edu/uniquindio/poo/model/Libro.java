@@ -13,7 +13,7 @@ public class Libro {
     private int unidadesdisp;
     private LinkedList<DetallesPrestamo> detalles;
 
-    Libro(String codigo, String isbn, String autor, String titulo, String editorial, Date fechapublicacion,
+    public Libro(String codigo, String isbn, String autor, String titulo, String editorial, Date fechapublicacion,
             int unidadesdisp) {
         this.codigo = codigo;
         this.isbn = isbn;
@@ -129,14 +129,14 @@ public class Libro {
     /**
      * disminuye la cantidad de unidades disponibles del libro
      */
-    public void disminuircantidaddisponible() {
-        unidadesdisp--;
+    public void disminuircantidaddisponible(int unidadesprestadas) {
+        unidadesdisp -= unidadesprestadas;
     }
 
     /**
      * aumenta la cantidad de unidades disponibles del libro
      */
-    public void aumentarcantidaddisponible() {
-        unidadesdisp++;
+    public void aumentarcantidaddisponible(int unidadesprestadas) {
+        unidadesdisp+= unidadesprestadas;
     }
 }

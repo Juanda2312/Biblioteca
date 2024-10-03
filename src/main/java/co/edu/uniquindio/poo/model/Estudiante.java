@@ -7,7 +7,7 @@ public class Estudiante extends Persona {
     private String programa;
     private HashMap<String, Prestamo> listaprestamos;
 
-    Estudiante(String nombre, String cedula, String telefono, String correo, String programa) {
+    public Estudiante(String nombre, String cedula, String telefono, String correo, String programa) {
         super(nombre, cedula, telefono, correo);
         this.programa = programa;
         listaprestamos = new HashMap<>();

@@ -9,7 +9,7 @@ public class Bibliotecario extends Persona {
     private HashMap<String, Prestamo> listaprestamos;
     private Date fechaingreso;
 
-    Bibliotecario(String nombre, String cedula, String telefono, String correo, float salario, Date fechaingreso) {
+    public Bibliotecario(String nombre, String cedula, String telefono, String correo, float salario, Date fechaingreso) {
         super(nombre, cedula, telefono, correo);
         this.salario = salario;
         this.fechaingreso = fechaingreso;
