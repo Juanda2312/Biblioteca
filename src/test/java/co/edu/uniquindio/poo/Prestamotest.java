@@ -32,8 +32,8 @@ public class Prestamotest {
         Prestamo prestamo = new Prestamo("1", fechaprestamo, null, null, listadetalles);
 
         float resultado = prestamo.calcularcostoprestamo(fechaentrega);
-        assertEquals(27000, resultado);
-        assertEquals(EstadoPrestamo.ENTREGADO, prestamo.getEstado());
+        assertEquals(27000, resultado);//1500 costo total * 18 dias
+        assertEquals(EstadoPrestamo.ENTREGADO, prestamo.getEstado()); //Se verifica que si cambie su estado a entregado
 
         LOG.info("Finalizando test ");
 }
@@ -44,8 +44,8 @@ public class Prestamotest {
         Prestamo prestamo2 = new Prestamo("5", null, null, null, null);
         Prestamo prestamo3 = new Prestamo("1", null, null, null, null);
 
-        assertTrue(prestamo1.equals(prestamo3));
-        assertFalse(prestamo1.equals(prestamo2));
+        assertTrue(prestamo1.equals(prestamo3));//Tienen el mismo código
+        assertFalse(prestamo1.equals(prestamo2));//No tienen el mismo código
         LOG.info("Finalizando test ");
 }
 }

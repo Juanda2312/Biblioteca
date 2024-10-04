@@ -26,7 +26,7 @@ public class Bibliotecatest {
         assertEquals("El estudiante ha sido agregado correctamente", resultado);
 
         resultado = biblioteca.Agregarestudiante(estudiante2);
-        assertEquals("El estudiante ya existe", resultado);
+        assertEquals("El estudiante ya existe", resultado);//Tienen la misma cedula
 
         LOG.info("Finalizando test ");
     }

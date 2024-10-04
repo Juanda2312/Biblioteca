@@ -19,20 +19,18 @@ public class Estudiantetest {
         Prestamo prestamo2 = new Prestamo("2", null, null, null, null);
         Prestamo prestamo3 = new Prestamo("3", null, null, null, null);
         Prestamo prestamo4 = new Prestamo("4", null, null, null, null);
-        HashMap <String,Prestamo> listaprestamos = new HashMap<>();
-        listaprestamos.put(prestamo1.getCodigo(), prestamo1);
-        listaprestamos.put(prestamo2.getCodigo(), prestamo2);
-        listaprestamos.put(prestamo3.getCodigo(), prestamo3);
-        listaprestamos.put(prestamo4.getCodigo(), prestamo4);
         Estudiante estudiante = new Estudiante(null, null, null, null, null);
-        estudiante.setListaprestamos(listaprestamos);
+        estudiante.AgregarPrestamo(prestamo1);
+        estudiante.AgregarPrestamo(prestamo2);
+        estudiante.AgregarPrestamo(prestamo3);
+        estudiante.AgregarPrestamo(prestamo4);
 
         assertEquals(4,estudiante.contarcantidadprestamos());
 
         LOG.info("Finalizando test ");
 }
     @Test
-    public void getListaprestamos(){
+    public void getListaprestamostest(){
         LOG.info("Iniciado test ");
 
         Prestamo prestamo1 = new Prestamo("1", null, null, null, null);
@@ -45,7 +43,10 @@ public class Estudiantetest {
         listaprestamos.put(prestamo3.getCodigo(), prestamo3);
         listaprestamos.put(prestamo4.getCodigo(), prestamo4);
         Estudiante estudiante = new Estudiante(null, null, null, null, null);
-        estudiante.setListaprestamos(listaprestamos);
+        estudiante.AgregarPrestamo(prestamo1);
+        estudiante.AgregarPrestamo(prestamo2);
+        estudiante.AgregarPrestamo(prestamo3);
+        estudiante.AgregarPrestamo(prestamo4);
 
         assertEquals(listaprestamos, estudiante.getListaprestamos());
         

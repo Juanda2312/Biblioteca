@@ -23,18 +23,18 @@ public class Librotest {
         assertEquals(20, libro.getUnidadesdisp());
 
         DetallesPrestamo detalles1 = new DetallesPrestamo(500, 1, libro);
-        assertEquals(19, libro.getUnidadesdisp());
+        assertEquals(19, libro.getUnidadesdisp());//Se presta 1 quedan 19
 
         DetallesPrestamo detalles2 = new DetallesPrestamo(1000, 2, libro);
         LinkedList <DetallesPrestamo> listadetalles = new LinkedList<>();
         libro.setDetalles(listadetalles);
         listadetalles.add(detalles2);
         listadetalles.add(detalles1);
-        assertEquals(17, libro.getUnidadesdisp());
+        assertEquals(17, libro.getUnidadesdisp());//Se presta otros 2 quedan 17
 
         Prestamo prestamo = new Prestamo("1", fechaprestamo, null, null, listadetalles);
-        prestamo.calcularcostoprestamo(fechaentrega);
-        assertEquals(20, libro.getUnidadesdisp());
+        prestamo.calcularcostoprestamo(fechaentrega); //Se entregan los libros
+        assertEquals(20, libro.getUnidadesdisp()); //Como se entregaron vuelven otra vez a 20
 
         LOG.info("Finalizando test ");
 }
@@ -50,8 +50,6 @@ public class Librotest {
         listadetalles.add(detalles2);
         listadetalles.add(detalles1);
         assertEquals(2,libro.contarcantidadprestamos());
-
-
 
         LOG.info("Finalizando test ");
 }
